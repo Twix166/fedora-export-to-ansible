@@ -1,6 +1,6 @@
 # Export to Ansible
 
-This script generates an Ansible file based on the configuration of your Fedora system. This means that you can add apps, make config changes and customisations manually and have the script detect them and export them to an ansible playbook.
+This script generates an Ansible file based on the configuration of your Fedora system. This means that you can add apps, make config changes and customisations manually and have the script detect them and export them to an Ansible playbook.
 
 ## What happens?
 
