@@ -1,0 +1,11 @@
+---
+- name: Restore KDE and dconf settings (local user)
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+  tasks:
+    - import_tasks: kde.yml
+    - import_tasks: dconf.yml

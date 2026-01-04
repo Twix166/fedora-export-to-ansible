@@ -1,0 +1,18 @@
+---
+- name: Restore dconf settings (user)
+  become: false
+  block:
+    - name: Check if dconf dump exists and is non-empty
+      ansible.builtin.stat:
+        path: "{{ playbook_dir }}/files/dconf_dump.txt"
+      register: dconf_dump
+
+    - name: Load dconf database from dump
+      ansible.builtin.shell: |
+        set -euo pipefail
+        dconf load / < "{{ playbook_dir }}/files/dconf_dump.txt"
+      args:
+        executable: /bin/bash
+      when:
+        - dconf_dump.stat.exists
+        - dconf_dump.stat.size | int > 0

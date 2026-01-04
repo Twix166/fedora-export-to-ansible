@@ -1,0 +1,21 @@
+---
+# Enables a single repo id = {{ item }}
+
+- name: Find repo file containing section [{{ item }}]
+  ansible.builtin.shell: |
+    set -euo pipefail
+    grep -Rsl --include='*.repo' -m1 -E '^\[{{ item | regex_escape() }}\]\s*$' /etc/yum.repos.d || true
+  args:
+    executable: /bin/bash
+  register: repo_file_match
+  changed_when: false
+  no_log: true
+
+- name: Enable repo {{ item }} in matched file
+  ansible.builtin.ini_file:
+    path: "{{ repo_file_match.stdout }}"
+    section: "{{ item }}"
+    option: enabled
+    value: "1"
+    no_extra_spaces: true
+  when: repo_file_match.stdout | length > 0

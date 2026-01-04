@@ -1,0 +1,15 @@
+---
+# Enable exported DNF repos by editing repo files directly (DNF5-safe).
+# We can't loop over a block, so we loop over an include_tasks.
+
+- name: Check if /etc/yum.repos.d exists
+  ansible.builtin.stat:
+    path: /etc/yum.repos.d
+  register: yum_repos_d
+
+- name: Enable exported DNF repos
+  ansible.builtin.include_tasks: _enable_one_repo.yml
+  loop: "{{ dnf_enabled_repos }}"
+  loop_control:
+    label: "{{ item }}"
+  when: yum_repos_d.stat.exists and yum_repos_d.stat.isdir

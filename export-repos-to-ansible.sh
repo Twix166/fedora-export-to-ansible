@@ -2,7 +2,8 @@
 set -euo pipefail
 
 # export-dnf-repos-to-ansible.sh
-# Exports enabled DNF repo IDs into vars + an Ansible task file.
+# Exports enabled DNF repo IDs into vars + generates an Ansible task file that
+# enables them by editing /etc/yum.repos.d/*.repo (DNF5-safe; Fedora 43).
 
 OUTDIR="${1:-ansible-export}"
 mkdir -p "$OUTDIR"
@@ -15,23 +16,17 @@ command -v dnf >/dev/null 2>&1 || { echo "ERROR: dnf not found." >&2; exit 1; }
 
 echo "[*] Exporting enabled DNF repositories..."
 
-# Try a couple of formats because DNF4 vs DNF5 output differs.
-# We want a clean list of repo IDs, one per line.
 get_enabled_repos() {
-  # DNF5 often supports --json for repolist
+  # Prefer JSON if supported (DNF5 commonly has it)
   if dnf repolist --help 2>/dev/null | grep -q -- '--json'; then
-    # Parse minimal JSON without jq (best-effort, but usually stable)
-    # If you have jq installed, you can swap this for a proper jq parse.
     dnf -q repolist --enabled --json \
       | tr '{},[]' '\n' \
       | sed -n 's/^[[:space:]]*"id"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p'
     return
   fi
 
-  # Classic text output: extract first column repo id lines.
-  # "repolist:" line and headers should be ignored.
+  # Fallback: parse text output
   dnf -q repolist --enabled 2>/dev/null \
-    | sed -e '1,5{/repo id/d;}' \
     | awk '
         BEGIN{inlist=0}
         /repo id/ {inlist=1; next}
@@ -41,7 +36,8 @@ get_enabled_repos() {
       '
 }
 
-REPOS="$(get_enabled_repos | sed '/^\s*$/d' | sort -u)"
+# Make sure we have one repo id per line, no whitespace surprises
+REPOS="$(get_enabled_repos | tr -s '[:space:]' '\n' | sed '/^$/d' | sort -u)"
 
 if [[ -z "${REPOS}" ]]; then
   echo "ERROR: Could not determine enabled repos from 'dnf repolist --enabled' output." >&2
@@ -58,30 +54,46 @@ fi
   done <<< "$REPOS"
 } > "$VARS_REPOS"
 
-# Write task file (includeable from your main playbook)
+echo "[*] Writing repos.yml (DNF5-safe)..."
 cat > "$TASKS_REPOS" <<'YAML'
 ---
-# Enable exported DNF repos
-# Requires: ansible-galaxy collection install community.general
-- name: Ensure exported DNF repos are enabled
-  community.general.dnf_config_manager:
-    name: "{{ dnf_enabled_repos }}"
-    state: enabled
+# Enable exported DNF repos by editing repo files directly (DNF5-safe).
+# We can't loop over a block, so we loop over an include_tasks.
+
+- name: Check if /etc/yum.repos.d exists
+  ansible.builtin.stat:
+    path: /etc/yum.repos.d
+  register: yum_repos_d
+
+- name: Enable exported DNF repos
+  ansible.builtin.include_tasks: _enable_one_repo.yml
+  loop: "{{ dnf_enabled_repos }}"
+  loop_control:
+    label: "{{ item }}"
+  when: yum_repos_d.stat.exists and yum_repos_d.stat.isdir
 YAML
 
-# README
-cat > "$README" <<'MD'
-# Exported DNF enabled repos -> Ansible
+cat > "$OUTDIR/_enable_one_repo.yml" <<'YAML'
+---
+# Enables a single repo id = {{ item }}
 
-## What this does
-Exports the *repo IDs* that are enabled on this machine and generates:
-- `vars_repos.yml`
-- `repos.yml` (tasks to enable those repo IDs)
+- name: Find repo file containing section [{{ item }}]
+  ansible.builtin.shell: |
+    set -euo pipefail
+    grep -Rsl --include='*.repo' -m1 -E '^\[{{ item | regex_escape() }}\]\s*$' /etc/yum.repos.d || true
+  args:
+    executable: /bin/bash
+  register: repo_file_match
+  changed_when: false
+  no_log: true
 
-## Apply
-From your Ansible folder:
+- name: Enable repo {{ item }} in matched file
+  ansible.builtin.ini_file:
+    path: "{{ repo_file_match.stdout }}"
+    section: "{{ item }}"
+    option: enabled
+    value: "1"
+    no_extra_spaces: true
+  when: repo_file_match.stdout | length > 0
+YAML
 
-```bash
-ansible-galaxy collection install community.general
-ansible-playbook -K -i localhost, site.yml
-MD

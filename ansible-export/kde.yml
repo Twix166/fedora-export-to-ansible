@@ -1,0 +1,27 @@
+---
+- name: Restore KDE/Plasma user configuration files
+  become: false
+  block:
+    - name: Ensure ~/.config exists
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/.config"
+        state: directory
+        mode: "0755"
+
+    - name: Ensure ~/.local/share exists
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/.local/share"
+        state: directory
+        mode: "0755"
+
+    - name: Copy KDE config bundle into home directory
+      ansible.builtin.copy:
+        src: "{{ playbook_dir }}/files/kde-config/"
+        dest: "{{ ansible_env.HOME }}/"
+        mode: preserve
+
+    - name: Note about applying KDE changes
+      ansible.builtin.debug:
+        msg: >
+          KDE settings restored. Some changes require logging out/in.
+          Optionally restart Plasma: kquitapp6 plasmashell && kstart6 plasmashell
