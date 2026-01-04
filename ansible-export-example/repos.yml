@@ -1,0 +1,7 @@
+---
+# Enable exported DNF repos
+# Requires: ansible-galaxy collection install community.general
+- name: Ensure exported DNF repos are enabled
+  community.general.dnf_config_manager:
+    name: "{{ dnf_enabled_repos }}"
+    state: enabled
