@@ -1,0 +1,3 @@
+# Best-effort RPM owners for theme/icon/font files referenced by your system
+# (User assets under $HOME usually won't have RPM owners.)
+

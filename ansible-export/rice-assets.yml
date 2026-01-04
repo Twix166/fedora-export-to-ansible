@@ -1,0 +1,31 @@
+---
+# Restore fonts/themes/icons (rice assets) into the user's home.
+# Run these tasks as the user (become: false), but ensure the destination is correct
+# by providing rice_home if your play uses become: true at the top.
+
+- name: Set rice_home default to user's HOME if not provided
+  ansible.builtin.set_fact:
+    rice_home: "{{ rice_home | default(lookup('env','HOME')) }}"
+
+- name: Ensure base directories exist
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+  loop:
+    - "{{ rice_home }}/.local/share"
+    - "{{ rice_home }}/.local/share/fonts"
+    - "{{ rice_home }}/.local/share/icons"
+    - "{{ rice_home }}/.themes"
+    - "{{ rice_home }}/.icons"
+
+- name: Restore rice assets bundle into home directory
+  ansible.builtin.copy:
+    src: "{{ playbook_dir }}/files/rice-assets/"
+    dest: "{{ rice_home }}/"
+    mode: preserve
+
+- name: Refresh font cache (if fc-cache exists)
+  ansible.builtin.command: fc-cache -f
+  changed_when: false
+  failed_when: false
