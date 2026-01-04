@@ -1,0 +1,6 @@
+---
+flatpak_user_apps:
+  - []
+
+flatpak_system_apps:
+  - com.heroicgameslauncher.hgl
