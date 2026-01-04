@@ -8,4 +8,4 @@ Application detection - The script creates two application lists. One for DNF an
 
 DNF Repository detection - The script detects which repos are enabled and generates a playbook
 
-dconf and KDEW settings detection - Collect all the settings for KDE and dconf and create tasks and a [laybook
+dconf and KDE settings detection - Collect all the settings for KDE and dconf and create tasks and a [laybook
