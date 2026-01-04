@@ -7,3 +7,5 @@ This script generates an Ansible file based on the configuration of your Fedora 
 Application detection - The script creates two application lists. One for DNF and one for Flatpak. It writes those lists to two separate *vars_* YAML files.
 
 DNF Repository detection - The script detects which repos are enabled and generates a playbook
+
+dconf and KDEW settings detection - Collect all the settings for KDE and dconf and create tasks and a [laybook
