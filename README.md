@@ -11,3 +11,8 @@ DNF Repository detection - The script detects which repos are enabled and genera
 dconf and KDE settings detection - Collect all the settings for KDE and dconf and create tasks and a playbook
 
 Themes detection - Export all themes, icons and font settings to a task
+
+## Things to do
+
+1. Create a single main script that can run all exports
+1. Create a single script that can run all playbooks or configurations on a vanilla install of Fedora
