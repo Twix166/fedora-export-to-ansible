@@ -4,17 +4,12 @@
   connection: local
   become: true
   gather_facts: true
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
 
   vars_files:
     - vars_dnf.yml
     - vars_flatpak.yml
-    - vars_repos.yml
 
   tasks:
-    - import_tasks: repos.yml
-
     - name: Ensure DNF packages are installed
     # Note: package module uses dnf on Fedora
       ansible.builtin.package:
@@ -50,12 +45,3 @@
         method: system
         remote: flathub
       when: flatpak_system_apps is defined and (flatpak_system_apps | length > 0) and (flatpak_system_apps[0] != [])
-
-    # --- Desktop configuration (user) ---
-    - name: Restore KDE configuration
-      import_tasks: kde.yml
-      become: false
-
-    - name: Restore dconf configuration
-      import_tasks: dconf.yml
-      become: false

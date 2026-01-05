@@ -1,3 +1,4 @@
 /home/rbalm/.local/share/icons
+/home/rbalm/.config/fontconfig
 /home/rbalm/.config/gtk-3.0
 /home/rbalm/.config/gtk-4.0

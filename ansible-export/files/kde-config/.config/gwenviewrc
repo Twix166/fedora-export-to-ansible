@@ -1,0 +1,22 @@
+[General]
+LastUsedVersion=210800
+
+[MainWindow]
+MenuBar=Disabled
+
+[Recent Files]
+File1[$e]=$HOME/insta.png
+File2[$e]=$HOME/qr.png
+File3[$e]=$HOME/Videos/DJI/dji_fly_20251226_115300_0008_1766750665255_photo_beautify.jpg
+File4[$e]=$HOME/Videos/DJI/dji_fly_20251226_115306_0009_1766750664603_photo_beautify.jpg
+File5[$e]=$HOME/Videos/DJI/dji_fly_20251226_115318_0010_1766750660899_photo_beautify.jpg
+File6[$e]=$HOME/Videos/DJI/dji_fly_20251230_124224_0035_1767098647857_photo_beautify.jpg
+Name1[$e]=insta.png
+Name2[$e]=qr.png
+Name3[$e]=dji_fly_20251226_115300_0008_1766750665255_photo_beautify.jpg
+Name4[$e]=dji_fly_20251226_115306_0009_1766750664603_photo_beautify.jpg
+Name5[$e]=dji_fly_20251226_115318_0010_1766750660899_photo_beautify.jpg
+Name6[$e]=dji_fly_20251230_124224_0035_1767098647857_photo_beautify.jpg
+
+[SideBar]
+InformationSplitterSizes=211,244
