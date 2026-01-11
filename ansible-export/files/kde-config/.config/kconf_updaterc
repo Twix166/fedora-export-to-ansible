@@ -1,19 +1,19 @@
 updateInfoAdded=true
 
 [dolphin_detailsmodesettings.upd]
-ctime=1767308487
+ctime=1768138625
 done=rename-leading-padding,rename-side-padding,move-content-display
-mtime=1764800663
+mtime=1767584999
 
 [dolphin_replace_view_mode_with_view_settings_in_toolbar.upd]
-ctime=1767308487
+ctime=1768138625
 done=move-content-display,replace-view-mode-with-view-settings-in-toolbar
-mtime=1764800663
+mtime=1767584999
 
 [dolphin_statusandlocationbarssettings.upd]
-ctime=1767308487
+ctime=1768138625
 done=replace-view-mode-with-view-settings-in-toolbar,25.04-convert-bool-showstatusbar-to-enum-showstatusbar
-mtime=1764800663
+mtime=1767584999
 
 [gtkconfig.upd]
 ctime=1767308581
@@ -21,9 +21,9 @@ done=25.04-convert-bool-showstatusbar-to-enum-showstatusbar,gtk_theme,dont_use_g
 mtime=1765238400
 
 [kcalcrc.upd]
-ctime=1767308586
+ctime=1768138633
 done=remove_deprecated_gtk4_option,remove_deprecated_gtk4_option_v2
-mtime=1764801321
+mtime=1767436476
 
 [kwin.upd]
 ctime=1767308494

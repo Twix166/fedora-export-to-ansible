@@ -11,12 +11,18 @@ File3[$e]=$HOME/Videos/DJI/dji_fly_20251226_115300_0008_1766750665255_photo_beau
 File4[$e]=$HOME/Videos/DJI/dji_fly_20251226_115306_0009_1766750664603_photo_beautify.jpg
 File5[$e]=$HOME/Videos/DJI/dji_fly_20251226_115318_0010_1766750660899_photo_beautify.jpg
 File6[$e]=$HOME/Videos/DJI/dji_fly_20251230_124224_0035_1767098647857_photo_beautify.jpg
+File7[$e]=$HOME/Pictures/Screenshots/Screenshot_20260105_163647.png
+File8[$e]=$HOME/Pictures/Screenshots/Screenshot_20260105_171759.png
+File9[$e]=$HOME/Pictures/Screenshots/Screenshot_20260111_130447.png
 Name1[$e]=insta.png
 Name2[$e]=qr.png
 Name3[$e]=dji_fly_20251226_115300_0008_1766750665255_photo_beautify.jpg
 Name4[$e]=dji_fly_20251226_115306_0009_1766750664603_photo_beautify.jpg
 Name5[$e]=dji_fly_20251226_115318_0010_1766750660899_photo_beautify.jpg
 Name6[$e]=dji_fly_20251230_124224_0035_1767098647857_photo_beautify.jpg
+Name7[$e]=Screenshot_20260105_163647.png
+Name8[$e]=Screenshot_20260105_171759.png
+Name9[$e]=Screenshot_20260111_130447.png
 
 [SideBar]
 InformationSplitterSizes=211,244

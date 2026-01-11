@@ -1,0 +1,28 @@
+[Desktop Entry]
+FullScreen=false
+
+[General]
+LockSidebar=true
+ShowSidebar=true
+
+[Recent Files]
+File1[$e]=$HOME/BarclayPDFtoCSV/statements/202407-July2024Statement.pdf
+File10[$e]=$HOME/BarclayPDFtoCSV/statements/202504-April2025Statement.pdf
+File2[$e]=$HOME/BarclayPDFtoCSV/statements/202408-August2024Statement.pdf
+File3[$e]=$HOME/BarclayPDFtoCSV/statements/202409-September2024Statement.pdf
+File4[$e]=$HOME/BarclayPDFtoCSV/statements/202410-October2024Statement.pdf
+File5[$e]=$HOME/BarclayPDFtoCSV/statements/202411-November2024Statement.pdf
+File6[$e]=$HOME/BarclayPDFtoCSV/statements/202412-December2024Statement.pdf
+File7[$e]=$HOME/BarclayPDFtoCSV/statements/202501-January2025Statement.pdf
+File8[$e]=$HOME/BarclayPDFtoCSV/statements/202502-February2025Statement.pdf
+File9[$e]=$HOME/BarclayPDFtoCSV/statements/202503-March2025Statement.pdf
+Name1[$e]=202407-July2024Statement.pdf
+Name10[$e]=202504-April2025Statement.pdf
+Name2[$e]=202408-August2024Statement.pdf
+Name3[$e]=202409-September2024Statement.pdf
+Name4[$e]=202410-October2024Statement.pdf
+Name5[$e]=202411-November2024Statement.pdf
+Name6[$e]=202412-December2024Statement.pdf
+Name7[$e]=202501-January2025Statement.pdf
+Name8[$e]=202502-February2025Statement.pdf
+Name9[$e]=202503-March2025Statement.pdf

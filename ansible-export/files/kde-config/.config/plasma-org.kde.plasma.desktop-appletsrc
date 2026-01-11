@@ -74,7 +74,7 @@ immutability=1
 plugin=org.kde.plasma.icontasks
 
 [Containments][2][Applets][5][Configuration][General]
-launchers=applications:systemsettings.desktop,applications:org.kde.discover.desktop,preferred://filemanager,preferred://browser,applications:org.kde.konsole.desktop,applications:com.obsproject.Studio.desktop,applications:com.heroicgameslauncher.hgl.desktop,applications:steam.desktop,applications:com.visualstudio.code.desktop,applications:org.inkscape.Inkscape.desktop,applications:org.kde.krita.desktop,applications:org.kde.kdenlive.desktop,applications:libreoffice-draw.desktop,applications:libreoffice-writer.desktop,applications:libreoffice-calc.desktop
+launchers=applications:systemsettings.desktop,applications:org.kde.discover.desktop,preferred://filemanager,preferred://browser,applications:org.kde.konsole.desktop,applications:com.obsproject.Studio.desktop,applications:com.heroicgameslauncher.hgl.desktop,applications:steam.desktop,applications:com.visualstudio.code.desktop,applications:org.inkscape.Inkscape.desktop,applications:org.kde.krita.desktop,applications:org.kde.kdenlive.desktop,applications:libreoffice-draw.desktop,applications:libreoffice-writer.desktop,applications:libreoffice-calc.desktop,applications:com.ktechpit.whatsie.desktop
 
 [Containments][2][Applets][6]
 immutability=1
@@ -173,7 +173,7 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][2][Applets][7][Applets][26][Configuration]
-PreloadWeight=85
+PreloadWeight=100
 
 [Containments][2][Applets][7][Applets][27]
 immutability=1

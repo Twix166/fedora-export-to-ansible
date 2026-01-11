@@ -5,4 +5,5 @@ flatpak_user_apps:
 flatpak_system_apps:
   - com.belmoussaoui.Decoder
   - com.heroicgameslauncher.hgl
+  - com.ktechpit.whatsie
   - com.visualstudio.code
