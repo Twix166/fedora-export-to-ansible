@@ -1,0 +1,137 @@
+---
+- name: Restore Fedora workstation from exported configuration
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  vars_files:
+    - vars_dnf.yml
+    - vars_flatpak.yml
+    - vars_repos.yml
+
+  vars:
+    restore_user: "{{ lookup('env', 'SUDO_USER') | default(ansible_env.USER, true) }}"
+    restore_home: >-
+      {{
+        '/root'
+        if restore_user == 'root'
+        else '/home/' ~ restore_user
+      }}
+
+  pre_tasks:
+    - name: Show restore target
+      ansible.builtin.debug:
+        msg:
+          - "Restoring Fedora configuration for user: {{ restore_user }}"
+          - "Target home directory: {{ restore_home }}"
+
+    - name: Ensure Python binding for DNF is available
+      become: true
+      ansible.builtin.package:
+        name: python3-libdnf5
+        state: present
+      ignore_errors: true
+
+    - name: Ensure Flatpak is installed when needed
+      become: true
+      ansible.builtin.package:
+        name: flatpak
+        state: present
+      when:
+        - (flatpak_user_apps | default([]) | length > 0) or
+          (flatpak_system_apps | default([]) | length > 0)
+
+    - name: Ensure rsync is installed for efficient file copy
+      become: true
+      ansible.builtin.package:
+        name: rsync
+        state: present
+      ignore_errors: true
+
+  tasks:
+    - name: Enable exported DNF repositories
+      become: true
+      ansible.builtin.import_tasks: repos.yml
+
+    - name: Install exported DNF packages
+      become: true
+      ansible.builtin.package:
+        name: "{{ dnf_packages | default([]) }}"
+        state: present
+      when: dnf_packages | default([]) | length > 0
+
+    - name: Ensure Flathub remote exists system-wide
+      become: true
+      community.general.flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: "https://dl.flathub.org/repo/flathub.flatpakrepo"
+        method: system
+      when:
+        - (flatpak_user_apps | default([]) | length > 0) or
+          (flatpak_system_apps | default([]) | length > 0)
+
+    - name: Ensure target user exists
+      become: true
+      ansible.builtin.command: "id {{ restore_user }}"
+      changed_when: false
+
+    - name: Install exported user Flatpak apps
+      become: true
+      become_user: "{{ restore_user }}"
+      community.general.flatpak:
+        name: "{{ flatpak_user_apps }}"
+        state: present
+        method: user
+        remote: flathub
+      environment:
+        XDG_RUNTIME_DIR: "/run/user/{{ ansible_facts.user_uid | default(lookup('pipe', 'id -u ' ~ restore_user)) }}"
+      when: flatpak_user_apps | default([]) | length > 0
+
+    - name: Install exported system Flatpak apps
+      become: true
+      community.general.flatpak:
+        name: "{{ flatpak_system_apps }}"
+        state: present
+        method: system
+        remote: flathub
+      when: flatpak_system_apps | default([]) | length > 0
+
+    - name: Restore themes, fonts, icons, and other user assets
+      become: true
+      become_user: "{{ restore_user }}"
+      ansible.builtin.import_tasks: rice-assets.yml
+      vars:
+        rice_home: "{{ restore_home }}"
+
+    - name: Restore KDE configuration
+      become: true
+      become_user: "{{ restore_user }}"
+      ansible.builtin.import_tasks: kde.yml
+      vars:
+        ansible_env:
+          HOME: "{{ restore_home }}"
+
+    - name: Check whether dconf dump exists
+      become: true
+      ansible.builtin.stat:
+        path: files/dconf_dump.txt
+      register: dconf_dump_file
+
+    - name: Restore dconf settings
+      become: true
+      become_user: "{{ restore_user }}"
+      ansible.builtin.import_tasks: dconf.yml
+      vars:
+        ansible_env:
+          HOME: "{{ restore_home }}"
+      when:
+        - dconf_dump_file.stat.exists
+        - dconf_dump_file.stat.size > 0
+
+  post_tasks:
+    - name: Print completion message
+      ansible.builtin.debug:
+        msg:
+          - "Restore completed."
+          - "You may need to log out and back in before all desktop settings take effect."

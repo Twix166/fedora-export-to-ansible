@@ -1,28 +1,33 @@
 [General]
 LastUsedVersion=210800
+SideBarPage=operations
 
 [MainWindow]
 MenuBar=Disabled
 
 [Recent Files]
-File1[$e]=$HOME/insta.png
-File2[$e]=$HOME/qr.png
-File3[$e]=$HOME/Videos/DJI/dji_fly_20251226_115300_0008_1766750665255_photo_beautify.jpg
-File4[$e]=$HOME/Videos/DJI/dji_fly_20251226_115306_0009_1766750664603_photo_beautify.jpg
-File5[$e]=$HOME/Videos/DJI/dji_fly_20251226_115318_0010_1766750660899_photo_beautify.jpg
-File6[$e]=$HOME/Videos/DJI/dji_fly_20251230_124224_0035_1767098647857_photo_beautify.jpg
-File7[$e]=$HOME/Pictures/Screenshots/Screenshot_20260105_163647.png
-File8[$e]=$HOME/Pictures/Screenshots/Screenshot_20260105_171759.png
-File9[$e]=$HOME/Pictures/Screenshots/Screenshot_20260111_130447.png
-Name1[$e]=insta.png
-Name2[$e]=qr.png
-Name3[$e]=dji_fly_20251226_115300_0008_1766750665255_photo_beautify.jpg
-Name4[$e]=dji_fly_20251226_115306_0009_1766750664603_photo_beautify.jpg
-Name5[$e]=dji_fly_20251226_115318_0010_1766750660899_photo_beautify.jpg
-Name6[$e]=dji_fly_20251230_124224_0035_1767098647857_photo_beautify.jpg
-Name7[$e]=Screenshot_20260105_163647.png
-Name8[$e]=Screenshot_20260105_171759.png
-Name9[$e]=Screenshot_20260111_130447.png
+File1[$e]=$HOME/Nextcloud/Documents/CIC/Pictures/Pub Photos - 12 Mar 2023/WhatsApp Image 2023-03-12 at 12.49.54 (3).jpeg
+File10[$e]=$HOME/Nextcloud/Documents/CIC/Pictures/T-Shirt Designs/PnF pencil simple.png
+File2[$e]=$HOME/Nextcloud/Documents/CIC/Pictures/Pub Photos - 12 Mar 2023/WhatsApp Image 2023-03-12 at 12.49.54 (2).jpeg
+File3[$e]=$HOME/Downloads/ChatGPT Image Mar 6, 2026, 03_54_28 PM.png
+File4[$e]=$HOME/Downloads/ChatGPT Image Mar 6, 2026, 03_58_54 PM.png
+File5[$e]=$HOME/Downloads/Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Black-White-Minimalist-SImple-Monogram-Typography-Logo-1-pdf-300x298-1.jpg
+File6[$e]=$HOME/Nextcloud/Documents/CIC/Pictures/T-Shirt Designs/PnF Farmer and Horse.png
+File7[$e]=$HOME/Nextcloud/Documents/CIC/Pictures/T-Shirt Designs/Pnf Farmer and Horse - Fiep Westendorp Style.png
+File8[$e]=$HOME/Nextcloud/Documents/CIC/Pictures/T-Shirt Designs/PnF pencil mid.png
+File9[$e]=$HOME/Nextcloud/Documents/CIC/Pictures/T-Shirt Designs/PnF pencil simple.xcf
+Name1[$e]=WhatsApp Image 2023-03-12 at 12.49.54 (3).jpeg
+Name10[$e]=PnF pencil simple.png
+Name2[$e]=WhatsApp Image 2023-03-12 at 12.49.54 (2).jpeg
+Name3[$e]=ChatGPT Image Mar 6, 2026, 03_54_28 PM.png
+Name4[$e]=ChatGPT Image Mar 6, 2026, 03_58_54 PM.png
+Name5[$e]=Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Black-White-Minimalist-SImple-Monogram-Typography-Logo-1-pdf-300x298-1.jpg
+Name6[$e]=PnF Farmer and Horse.png
+Name7[$e]=Pnf Farmer and Horse - Fiep Westendorp Style.png
+Name8[$e]=PnF pencil mid.png
+Name9[$e]=PnF pencil simple.xcf
 
 [SideBar]
-InformationSplitterSizes=211,244
+InformationSplitterSizes=220,255
+IsVisible ViewMode=true
+SideBarSplitterSizes=198,1204

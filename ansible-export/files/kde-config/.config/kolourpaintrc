@@ -1,16 +1,24 @@
 [General Settings]
 First Time=false
 Open Images in the Same Window=false
+Resize Scale - Last Keep Aspect=false
+Resize Scale - ScaleType=2
 
 [MainWindow][Toolbar Tool Box]
 ToolButtonStyle=IconOnly
 
 [Recent Files]
 File1[$e]=$HOME/fb.svg
+File2[$e]=$HOME/Nextcloud/OBS Templates/YT Thumbnails/Oblivion - Find Your Roots.svg
+File3[$e]=$HOME/Nextcloud/Youtube Videos/Dad Shed Thumbnails/Let's Play Pax Dei - Day 1/youtube thumbnail - template.svg
+File4[$e]=$HOME/Pictures/Screenshots/Screenshot_20260112_131648.png
 Name1[$e]=fb.svg
+Name2[$e]=Oblivion - Find Your Roots.svg
+Name3[$e]=youtube thumbnail - template.svg
+Name4[$e]=Screenshot_20260112_131648.png
 
 [Tool Settings]
-Last Used Tool=5
+Last Used Tool=1
 Tool Widget Brush Col=0
 Tool Widget Brush Row=0
 Tool Widget Eraser Size Col=0

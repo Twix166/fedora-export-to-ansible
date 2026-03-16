@@ -1,9 +1,15 @@
 ---
-flatpak_user_apps:
-  - []
+flatpak_user_apps: []
 
 flatpak_system_apps:
+  - com.bambulab.BambuStudio
   - com.belmoussaoui.Decoder
+  - com.bitwarden.desktop
+  - com.discordapp.Discord
   - com.heroicgameslauncher.hgl
   - com.ktechpit.whatsie
   - com.visualstudio.code
+  - fr.handbrake.ghb
+  - io.github.Faugus.faugus-launcher
+  - net.veloren.veloren
+  - org.freecad.FreeCAD

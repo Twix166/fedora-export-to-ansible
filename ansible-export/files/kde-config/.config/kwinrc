@@ -1,19 +1,27 @@
 [Desktops]
 Id_1=39f939d7-d60d-42af-886f-4c1ee58da4ce
-Number=1
+Id_2=606b298e-3a9e-4637-a9a7-c4746aaf9007
+Number=2
 Rows=1
 
-[Tiling]
-padding=4
-
 [Tiling][39f939d7-d60d-42af-886f-4c1ee58da4ce][]
+padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][39f939d7-d60d-42af-886f-4c1ee58da4ce][8a8beb9d-5e00-453c-85f5-168d31f5e8b4]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][39f939d7-d60d-42af-886f-4c1ee58da4ce][c0c6e9e2-5073-4521-8d65-07af2587e0e9]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][606b298e-3a9e-4637-a9a7-c4746aaf9007][]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][606b298e-3a9e-4637-a9a7-c4746aaf9007][c0c6e9e2-5073-4521-8d65-07af2587e0e9]
+padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Xwayland]
-Scale=1.45
+Scale=1

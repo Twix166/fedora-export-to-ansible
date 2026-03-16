@@ -1,5 +1,7 @@
 ---
 dnf_enabled_repos:
+  - "copr:copr.fedorainfracloud.org:alternateved:keyd"
+  - "copr:copr.fedorainfracloud.org:herzen:davinci-helper"
   - "copr:copr.fedorainfracloud.org:phracek:PyCharm"
   - "fedora"
   - "fedora-cisco-openh264"

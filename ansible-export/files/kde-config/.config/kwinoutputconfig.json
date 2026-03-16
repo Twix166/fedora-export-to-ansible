@@ -33,7 +33,16 @@
             {
                 "allowDdcCi": true,
                 "allowSdrSoftwareBrightness": false,
+                "autoBrightnessCurve": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
                 "autoRotation": "InTabletMode",
+                "automaticBrightness": false,
                 "brightness": 1,
                 "colorPowerTradeoff": "PreferEfficiency",
                 "colorProfileSource": "sRGB",
@@ -52,9 +61,10 @@
                 },
                 "overscan": 0,
                 "rgbRange": "Automatic",
-                "scale": 1.45,
+                "scale": 1,
                 "sdrBrightness": 276,
                 "sdrGamutWideness": 0,
+                "sharpness": 0,
                 "transform": "Normal",
                 "uuid": "c0c6e9e2-5073-4521-8d65-07af2587e0e9",
                 "vrrPolicy": "Never",
@@ -90,7 +100,7 @@
                             "x": 0,
                             "y": 0
                         },
-                        "priority": 0,
+                        "priority": 1,
                         "replicationSource": ""
                     }
                 ]

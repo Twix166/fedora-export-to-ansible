@@ -33,16 +33,20 @@ button-layout='icon:minimize,maximize,close'
 enable-fingerprint-authentication=true
 enable-smartcard-authentication=false
 
+[org/gtk/settings/color-chooser]
+custom-colors=[(1.0, 0.99046228710462292, 0.83666666666666667, 1.0)]
+selected-color=(true, 1.0, 0.99046228710462292, 0.83666666666666667, 1.0)
+
 [org/gtk/settings/file-chooser]
 date-format='regular'
 location-mode='path-bar'
 show-hidden=false
 show-size-column=true
 show-type-column=true
-sidebar-width=155
-sort-column='name'
+sidebar-width=237
+sort-column='modified'
 sort-directories-first=false
-sort-order='ascending'
+sort-order='descending'
 type-format='category'
 window-position=(45, 45)
 window-size=(1124, 822)
