@@ -51,7 +51,7 @@ if command -v flatpak >/dev/null 2>&1; then
         echo "  - $app"
       done <<< "$FLATPAK_USER"
     else
-      echo "  - []"
+      echo " []"
     fi
 
     echo ""
@@ -62,7 +62,7 @@ if command -v flatpak >/dev/null 2>&1; then
         echo "  - $app"
       done <<< "$FLATPAK_SYSTEM"
     else
-      echo "  - []"
+      echo " []"
     fi
   } > "$VARS_FLATPAK"
 else
